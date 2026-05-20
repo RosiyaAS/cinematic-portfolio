@@ -28,6 +28,26 @@ export default function VideoIntro({ heroRef }) {
         overflow: 'hidden',
       }}
     >
+      {/* Blurred bg layer — fills black bars */}
+      <video
+        src="/assets/about-me.mp4"
+        autoPlay
+        muted
+        playsInline
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          filter: 'blur(24px)',
+          transform: 'scale(1.1)',
+          opacity: 0.7,
+        }}
+      />
+
+      {/* Main video — original quality, aspect preserved */}
       <video
         ref={videoRef}
         data-testid="intro-video"

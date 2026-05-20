@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Navbar from '@/components/ui/Navbar'
 import { gsap } from '@/lib/gsap'
 
-const HeroSection = forwardRef(function HeroSection(props, ref) {
+const HeroSection = forwardRef(function HeroSection(_, ref) {
   const sectionRef = useRef(null)
   const greetRef = useRef(null)
   const roleRef = useRef(null)
@@ -91,27 +91,25 @@ const HeroSection = forwardRef(function HeroSection(props, ref) {
         />
       </div>
 
-      {/* Text content — lower-left, matching reference */}
+      {/* Text content — absolutely positioned, matches reference */}
       <div
         style={{
-          position: 'relative',
+          position: 'absolute',
+          left: '2.5rem',
+          bottom: '8rem',
           zIndex: 1,
-          height: '100%',
+          width: '44%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'flex-end',
-          paddingLeft: '2.5rem',
-          paddingBottom: '5.5rem',
-          width: '45%',
         }}
       >
         <p
           ref={greetRef}
           style={{
-            fontSize: 'var(--hero-role-size)',
+            fontSize: '0.8rem',
             fontWeight: 400,
             color: 'var(--text-primary)',
-            marginBottom: '0.1rem',
+            marginBottom: '0.05rem',
             letterSpacing: '0.01em',
           }}
         >
@@ -120,10 +118,10 @@ const HeroSection = forwardRef(function HeroSection(props, ref) {
         <p
           ref={roleRef}
           style={{
-            fontSize: 'var(--hero-role-size)',
+            fontSize: '0.8rem',
             fontWeight: 600,
             color: 'var(--text-primary)',
-            marginBottom: '0.5rem',
+            marginBottom: '0.25rem',
             letterSpacing: '0.01em',
           }}
         >
@@ -136,7 +134,7 @@ const HeroSection = forwardRef(function HeroSection(props, ref) {
             fontSize: 'var(--hero-name-size)',
             fontWeight: 900,
             color: 'var(--text-primary)',
-            lineHeight: 0.92,
+            lineHeight: 0.9,
             letterSpacing: '-0.03em',
           }}
         >
@@ -148,7 +146,7 @@ const HeroSection = forwardRef(function HeroSection(props, ref) {
             fontSize: 'var(--hero-name-size)',
             fontWeight: 900,
             color: 'var(--text-primary)',
-            lineHeight: 0.92,
+            lineHeight: 0.9,
             letterSpacing: '-0.03em',
           }}
         >
