@@ -3,6 +3,8 @@
   top: 0;
   height: 100vh;
   z-index: 3;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   background: #fff;
   display: grid;
   grid-template-columns: 30% 70%;

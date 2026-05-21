@@ -14,7 +14,7 @@ export default function Home() {
         Each section is position:sticky top:0 with increasing z-index, so every
         section slides UP over the previous one as you scroll down.
       */}
-      <main style={{ height: '100vh', overflowY: 'scroll' }}>
+      <main style={{ height: '100vh', overflowY: 'scroll', scrollSnapType: 'y mandatory' }}>
         <div style={{ height: '300vh' }}>
           <VideoIntro />
           <HeroSection />
