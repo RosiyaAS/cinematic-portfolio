@@ -1,29 +1,41 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Navbar       from '@/components/ui/Navbar'
-import VideoIntro   from '@/components/sections/VideoIntro'
-import HeroSection  from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
+import { gsap } from '@/lib/gsap'
+import Navbar                from '@/components/ui/Navbar'
+import VideoIntro            from '@/components/sections/VideoIntro'
+import HeroSection           from '@/components/sections/HeroSection'
+import AboutSection          from '@/components/sections/AboutSection'
+import WorkExperienceSection from '@/components/sections/WorkExperienceSection'
+import profile               from '@/data/profile.json'
 
-const SECTIONS = 3
+// Every index gets a snap: 0=video, 1=hero, 2=about, 3/4/5=work exp slides
+const WORK_SLIDES   = profile.experience.length       // 3
+const TOTAL         = 3 + WORK_SLIDES                 // 6
 
 export default function Home() {
-  const mainRef = useRef(null)
-  const idxRef  = useRef(0)
-  const busyRef = useRef(false)
+  const mainRef  = useRef(null)
+  const idxRef   = useRef(0)
+  const busyRef  = useRef(false)
+  const tweenRef = useRef(null)
 
   useEffect(() => {
     const el = mainRef.current
     if (!el) return
 
     function goTo(idx) {
-      idx = Math.max(0, Math.min(SECTIONS - 1, idx))
+      idx = Math.max(0, Math.min(TOTAL - 1, idx))
       if (idx === idxRef.current || busyRef.current) return
       idxRef.current = idx
       busyRef.current = true
-      el.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' })
-      setTimeout(() => { busyRef.current = false }, 900)
+      tweenRef.current?.kill()
+      // GSAP tween for butter-smooth scroll (better than browser smooth)
+      tweenRef.current = gsap.to(el, {
+        scrollTop: idx * window.innerHeight,
+        duration: 1.0,
+        ease: 'power3.inOut',
+        onComplete: () => { busyRef.current = false },
+      })
     }
 
     function onWheel(e) {
@@ -40,7 +52,6 @@ export default function Home() {
       if (Math.abs(dy) > 40) goTo(idxRef.current + (dy > 0 ? 1 : -1))
     }
 
-    // Sync idx after any programmatic scroll (e.g. VideoIntro scroll button)
     function onScroll() {
       idxRef.current = Math.round(el.scrollTop / window.innerHeight)
     }
@@ -55,6 +66,7 @@ export default function Home() {
       el.removeEventListener('touchstart', onTouchStart)
       el.removeEventListener('touchend',   onTouchEnd)
       el.removeEventListener('scroll',     onScroll)
+      tweenRef.current?.kill()
     }
   }, [])
 
@@ -62,10 +74,11 @@ export default function Home() {
     <>
       <Navbar />
       <main ref={mainRef} style={{ height: '100vh', overflowY: 'scroll' }}>
-        <div style={{ height: '300vh' }}>
+        <div>
           <VideoIntro />
           <HeroSection />
           <AboutSection />
+          <WorkExperienceSection />
         </div>
       </main>
     </>
