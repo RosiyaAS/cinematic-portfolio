@@ -45,6 +45,19 @@ export default function VideoIntro() {
     return () => t.kill()
   }, [])
 
+  // Unmute when screen loader is dismissed (fires inside user gesture — Safari safe)
+  useEffect(() => {
+    function onLoaderDismissed() {
+      const v = videoRef.current
+      if (!v) return
+      v.muted = false
+      setMuted(false)
+      dismissHint()
+    }
+    window.addEventListener('loader-dismissed', onLoaderDismissed)
+    return () => window.removeEventListener('loader-dismissed', onLoaderDismissed)
+  }, [])
+
   // Auto-hide hint after 6 s
   useEffect(() => {
     if (!showHint) return
