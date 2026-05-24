@@ -228,4 +228,5 @@
   .controls    { bottom: 1.5rem; right: 1rem; }
   .scrollCue   { bottom: 1.5rem; }
   .soundHint   { bottom: 4.5rem; right: 1rem; }
+  .bgVideo     { display: none; }
 }

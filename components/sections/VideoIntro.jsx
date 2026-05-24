@@ -9,7 +9,8 @@ import styles from '@/styles/sections/VideoIntro.module.css'
 const CinematicLayer = dynamic(() => import('@/components/three/CinematicLayer'), { ssr: false })
 
 function scrollNext() {
-  document.querySelector('main')?.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+  const main = document.querySelector('main')
+  if (main) main.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
 }
 
 export default function VideoIntro() {
@@ -24,6 +25,11 @@ export default function VideoIntro() {
   const [muted,    setMuted]    = useState(true)
   const [playing,  setPlaying]  = useState(true)
   const [showHint, setShowHint] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(max-width: 767px)').matches)
+  }, [])
 
   // Entrance animation
   useEffect(() => {
@@ -102,7 +108,10 @@ export default function VideoIntro() {
     setMuted(v.muted)
   }
 
-  function handleEnded() { scrollNext() }
+  function handleEnded() {
+    const main = document.querySelector('main')
+    if (main && main.scrollTop < window.innerHeight * 0.4) scrollNext()
+  }
 
   return (
     <section className={styles.section}>
@@ -130,8 +139,8 @@ export default function VideoIntro() {
       {/* 3 — Cinematic gradient overlay */}
       <div className={styles.overlay} />
 
-      {/* 4 — Three.js cinematic bokeh layer */}
-      <CinematicLayer />
+      {/* 4 — Three.js cinematic bokeh layer (desktop only) */}
+      {!isMobile && <CinematicLayer />}
 
       {/* 5 — Landing text */}
       <div className={styles.heroContent}>

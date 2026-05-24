@@ -593,7 +593,7 @@
 }
 
 .interLabel {
-  font-size: 0.5rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -642,11 +642,11 @@
 }
 
 .interNumLabel {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   text-align: right;
 }
@@ -670,11 +670,11 @@
 }
 
 .interScrollText {
-  font-size: 0.48rem;
+  font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .interScrollLine {
@@ -693,7 +693,7 @@
 
 /* ── Mobile ───────────────────────────────────────────── */
 @media (max-width: 767px) {
-  .pubHero      { padding: 1.2rem 1.25rem 0; }
+  .pubHero      { padding: 3.5rem 1.25rem 0; }
   .label        { font-size: 0.5rem; }
   .heading      { font-size: clamp(1.8rem, 9vw, 2.4rem); }
   .divider      { margin: 0.8rem 1.25rem 0; }

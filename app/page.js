@@ -107,17 +107,23 @@ export default function Home() {
       fadeLoop(0, 0)
     }
 
-    el.addEventListener('wheel',      onWheel,      { passive: false })
-    el.addEventListener('touchstart', onTouchStart, { passive: true  })
-    el.addEventListener('touchend',   onTouchEnd,   { passive: true  })
-    el.addEventListener('scroll',     onScroll,     { passive: true  })
+    const isMobile = window.matchMedia('(max-width: 767px)').matches
+
+    el.addEventListener('wheel',  onWheel,  { passive: false })
+    el.addEventListener('scroll', onScroll, { passive: true  })
+    if (!isMobile) {
+      el.addEventListener('touchstart', onTouchStart, { passive: true })
+      el.addEventListener('touchend',   onTouchEnd,   { passive: true })
+    }
     window.addEventListener('footer-loop-back', onFooterLoop)
 
     return () => {
-      el.removeEventListener('wheel',      onWheel)
-      el.removeEventListener('touchstart', onTouchStart)
-      el.removeEventListener('touchend',   onTouchEnd)
-      el.removeEventListener('scroll',     onScroll)
+      el.removeEventListener('wheel',  onWheel)
+      el.removeEventListener('scroll', onScroll)
+      if (!isMobile) {
+        el.removeEventListener('touchstart', onTouchStart)
+        el.removeEventListener('touchend',   onTouchEnd)
+      }
       window.removeEventListener('footer-loop-back', onFooterLoop)
       tweenRef.current?.kill()
     }

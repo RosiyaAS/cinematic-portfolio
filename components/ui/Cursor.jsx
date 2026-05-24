@@ -9,6 +9,11 @@ export default function Cursor() {
   const rafRef    = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(hover: none)').matches) {
+      if (cursorRef.current) cursorRef.current.style.display = 'none';
+      return;
+    }
+
     const onMove = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
