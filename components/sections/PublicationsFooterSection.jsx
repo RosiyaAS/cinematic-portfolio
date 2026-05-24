@@ -389,6 +389,9 @@ export default function PublicationsFooterSection() {
                 </div>
                 <div className={styles.itemRight}>
                   <span className={styles.year}>{pub.year}</span>
+                  <span className={styles.readBtn}>
+                    Read <FiArrowUpRight size={11} />
+                  </span>
                 </div>
               </a>
             ))}
