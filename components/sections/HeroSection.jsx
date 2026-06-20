@@ -177,6 +177,13 @@ export default function HeroSection() {
            View Projects <FiArrowUpRight />
         </button>
 
+        href="/assets/resume.pdf"
+          download="Rosiya_AS_Resume.pdf"
+          className={styles.mobileResumeBtn}
+        <a>
+          Download Resume <FiArrowUpRight />
+        </a>
+
         {/* Stats Row */}
         <div ref={statsRef} className={styles.stats}>
           {[...profile.stats.slice(0, 2), content.hero.specialistStat].map(s => (
