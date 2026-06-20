@@ -797,13 +797,13 @@
   }
 
   /* Interstitial - show on mobile, scaled down */
-  .interstitialLeft  { display: flex; left: 1.5rem; }
-  .interstitialRight { display: flex; right: 1.5rem; gap: 0.9rem; }
+  .interstitialLeft  { display: flex; left: 1.5rem; top: 35%; transform: none; }
+  .interstitialRight { display: flex; right: 1.5rem; top: 35%; transform: none; gap: 0.9rem; }
   .interstitialBottom { display: flex; bottom: 2rem; }
-  .interBig    { font-size: clamp(1.1rem, 5.5vw, 1.6rem); }
-  .interCount  { font-size: clamp(1.4rem, 7vw, 2.2rem); }
-  .interNumLabel { font-size: 0.52rem; }
-  .interLabel  { font-size: 0.55rem; }
+  .interBig    { font-size: clamp(0.9rem, 4.5vw, 1.3rem); }
+  .interCount  { font-size: clamp(1.2rem, 6vw, 2rem); }
+  .interNumLabel { font-size: 0.48rem; letter-spacing: 0.1em; }
+  .interLabel  { font-size: 0.5rem; }
 
   /* Footer */
   .footerContent {
@@ -979,33 +979,4 @@
   .list         { padding: 0 clamp(2rem, 5vw, 5rem) 1.5rem; }
   .item         { grid-template-columns: 3rem minmax(0, 1fr) auto; }
   .title        { font-size: clamp(0.78rem, 1.4vw, 1rem); }
-}
-
-/* Interstitial social links */
-.interSocials {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.interSocialLink {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-  pointer-events: auto !important;
-  cursor: pointer;
-  z-index: 100;
-  position: relative;
-}
-
-.interSocialLink:hover {
-  color: var(--accent);
 }

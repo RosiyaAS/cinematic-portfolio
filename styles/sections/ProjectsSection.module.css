@@ -220,7 +220,7 @@
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 14;
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
 }
 
@@ -275,7 +275,7 @@
     gap: 1rem;
   }
 
-  .slideRight { display: none; }
+  .slideRight { display: flex; flex-direction: column; }
   .title      { font-size: 1.8rem; }
   .slideNum   { font-size: 5rem; bottom: 5rem; }
 }

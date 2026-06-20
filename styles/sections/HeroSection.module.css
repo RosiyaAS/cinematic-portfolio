@@ -440,3 +440,12 @@
 .resumeIframe {
   height: 60vh !important;
 }
+/* ============================================
+   MOBILE FIXES
+   Add to bottom of HeroSection.module.css
+   ============================================ */
+@media (max-width: 767px) {
+  .resumePreviewCol {
+    display: none !important;
+  }
+}
