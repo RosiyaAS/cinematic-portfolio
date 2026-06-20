@@ -176,6 +176,13 @@ export default function HeroSection() {
         <button ref={ctaBtnRef} type="button" className={styles.viewBtn} onClick={handleViewProjects}>
            View Projects <FiArrowUpRight />
         </button>
+        <a
+          href="/assets/resume.pdf"
+          download="Rosiya_AS_Resume.pdf"
+          className={styles.mobileResumeBtn}
+        >
+          Download Resume <FiArrowUpRight />
+        </a>
 
         {/* Stats Row */}
         <div ref={statsRef} className={styles.stats}>
