@@ -437,15 +437,41 @@
   z-index: 2 !important;
 }
 
-.resumeIframe {
-  height: 60vh !important;
-}
 /* ============================================
-   MOBILE FIXES
+   ALL MOBILE FIXES
    Add to bottom of HeroSection.module.css
    ============================================ */
+
+/* Hide resume on mobile */
 @media (max-width: 767px) {
   .resumePreviewCol {
     display: none !important;
+  }
+
+  /* Fix empty space at bottom of hero */
+  .section {
+    height: auto !important;
+    min-height: 100svh !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Show cards col on mobile */
+  .cardsCol {
+    display: flex !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    padding: 0 1.25rem !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Fix content position */
+  .content {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    max-width: 100% !important;
+    padding: 5rem 1.25rem 0 !important;
   }
 }
