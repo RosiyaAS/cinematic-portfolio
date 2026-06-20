@@ -177,10 +177,10 @@ export default function HeroSection() {
            View Projects <FiArrowUpRight />
         </button>
 
-        href="/assets/resume.pdf"
+       href="/assets/resume.pdf"
           download="Rosiya_AS_Resume.pdf"
           className={styles.mobileResumeBtn}
-        <a>
+        >
           Download Resume <FiArrowUpRight />
         </a>
 
