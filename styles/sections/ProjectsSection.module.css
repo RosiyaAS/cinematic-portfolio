@@ -216,11 +216,11 @@
 .desc {
   font-size: var(--text-body);
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.90);
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 14;
   -webkit-box-orient: vertical;
 }
 

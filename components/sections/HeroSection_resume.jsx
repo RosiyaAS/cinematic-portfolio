@@ -97,7 +97,7 @@ export default function HeroSection() {
       <HeroBackground />
 
       {/* Resume Preview */}
-      <div ref={photoRef} className={styles.resumePreviewCol}>
+      <div ref={photoRef} className={styles.resumePreviewCol} style={{position:'absolute', right:'2vw', top:'50%', transform:'translateY(-50%)', zIndex:1}}>
         <div className={styles.resumeCard}>
           <div className={styles.resumeCardHeader}>
             <span className={styles.resumeCardTitle}>My Resume</span>

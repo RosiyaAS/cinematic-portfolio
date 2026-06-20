@@ -980,3 +980,32 @@
   .item         { grid-template-columns: 3rem minmax(0, 1fr) auto; }
   .title        { font-size: clamp(0.78rem, 1.4vw, 1rem); }
 }
+
+/* Interstitial social links */
+.interSocials {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.interSocialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  pointer-events: auto !important;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+}
+
+.interSocialLink:hover {
+  color: var(--accent);
+}
