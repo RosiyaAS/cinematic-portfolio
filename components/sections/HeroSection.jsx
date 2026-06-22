@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, Fragment } from 'react'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -96,7 +95,7 @@ export default function HeroSection() {
 
       <HeroBackground />
 
-      {/* Resume Preview */}
+      {/* Resume Preview - desktop only */}
       <div ref={photoRef} className={styles.resumePreviewCol}>
         <div className={styles.resumeCard}>
           <div className={styles.resumeCardHeader}>
@@ -177,7 +176,9 @@ export default function HeroSection() {
            View Projects <FiArrowUpRight />
         </button>
 
-       href="/assets/resume.pdf"
+        {/* Mobile Resume Download Button */}
+        <a
+          href="/assets/resume.pdf"
           download="Rosiya_AS_Resume.pdf"
           className={styles.mobileResumeBtn}
         >
@@ -220,3 +221,4 @@ export default function HeroSection() {
     </section>
   )
 }
+
