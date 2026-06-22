@@ -482,24 +482,22 @@
 
 @media (max-width: 767px) {
   .mobileResumeBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.6rem;
-    padding: 0.55rem 1.2rem;
-    border: 1.5px solid rgba(247, 147, 30, 0.7);
-    border-radius: 999px;
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.55rem 1.2rem;
 
-  .mobileResumeBtn:hover {
-    background: var(--accent);
-    color: #000;
-  }
+  background: #000;      /* Black background */
+  color: #fff;           /* White text */
+  border: 1.5px solid #000;
+
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 }
