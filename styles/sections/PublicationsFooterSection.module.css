@@ -760,7 +760,7 @@
 /* ── Mobile ───────────────────────────────────────────── */
 @media (max-width: 767px) {
   .glCanvas  { display: none; }
-  .imageWrap { display: none; }
+  .imageWrap { display: block; opacity: 0.4; }
   .sticky { height: 100svh; min-height: -webkit-fill-available; }
 
   /* pubContent has no background - mobileDarkOverlay provides uniform darkness beneath all sections */
@@ -790,20 +790,20 @@
   .title     { font-size: 0.78rem; }
   .desc      {
     font-size: 0.72rem;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
   }
 
   /* Interstitial - show on mobile, scaled down */
-  .interstitialLeft  { display: flex; left: 1.5rem; top: 35%; transform: none; }
-  .interstitialRight { display: flex; right: 1.5rem; top: 35%; transform: none; gap: 0.9rem; }
+  .interstitialLeft  { display: flex; left: 1.5rem; top: 40%; transform: translateY(-50%); }
+  .interstitialRight { display: flex; right: 1rem; top: 40%; transform: translateY(-50%); gap: 0.6rem; }
   .interstitialBottom { display: flex; bottom: 2rem; }
-  .interBig    { font-size: clamp(0.9rem, 4.5vw, 1.3rem); }
-  .interCount  { font-size: clamp(1.2rem, 6vw, 2rem); }
-  .interNumLabel { font-size: 0.48rem; letter-spacing: 0.1em; }
-  .interLabel  { font-size: 0.5rem; }
+  .interBig    { font-size: clamp(0.85rem, 4vw, 1.2rem); }
+  .interCount  { font-size: clamp(1.1rem, 5.5vw, 1.8rem); }
+  .interNumLabel { font-size: 0.45rem; }
+  .interLabel  { font-size: 0.45rem; }
 
   /* Footer */
   .footerContent {

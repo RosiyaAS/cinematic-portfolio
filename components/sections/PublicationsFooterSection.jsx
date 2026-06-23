@@ -259,7 +259,7 @@ export default function PublicationsFooterSection() {
         // footer-mobile.webp static background - interstitial fades between pub and footer
         const interIn  = Math.max(0, Math.min(1, (p - 0.28) / 0.17))
         const interOut = Math.max(0, Math.min(1, (p - 0.60) / 0.12))
-        gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut) })
+        gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut), pointerEvents: 'none' })
 
       } else {
         // ── Phase 2: image shrinks full-width → centered (p 0.12 → 0.65) ──
@@ -279,7 +279,7 @@ export default function PublicationsFooterSection() {
         // ── Interstitial: fade in after pub, fade out before crossfade ──
         const interIn  = Math.max(0, Math.min(1, (p - 0.25) / 0.15))
         const interOut = Math.max(0, Math.min(1, (p - 0.54) / 0.14))
-        gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut) })
+        gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut), pointerEvents: 'none' })
 
         // ── Phase 3: sine-eased crossfade image → video (p 0.65 → 0.92) ──
         // Sine ease: both curves share same t so they are perceptually matched
@@ -334,7 +334,7 @@ export default function PublicationsFooterSection() {
         {/* ── Mobile background image (footer phase - mobile only) ── */}
         <div className={styles.mobileFooterBg}>
           <Image
-            src="/assets/footer-mobile.webp"
+            src="/assets/footer-mobile.png"
             alt=""
             fill
             quality={100}
@@ -392,7 +392,9 @@ export default function PublicationsFooterSection() {
                 </div>
                 <div className={styles.itemRight}>
                   <span className={styles.year}>{pub.year}</span>
-                  
+                  <span className={styles.readBtn}>
+                    Read <FiArrowUpRight size={11} />
+                  </span>
                 </div>
               </a>
             ))}
@@ -400,7 +402,7 @@ export default function PublicationsFooterSection() {
         </div>
 
         {/* ── Image-only interstitial (step 2) ── */}
-        <div ref={interstitialRef} className={styles.interstitial}>
+        <div ref={interstitialRef} className={styles.interstitial} aria-hidden>
 
           <div className={styles.interstitialLeft}>
             <div className={styles.interStat}>
