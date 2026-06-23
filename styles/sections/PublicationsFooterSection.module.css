@@ -980,3 +980,47 @@
   .item         { grid-template-columns: 3rem minmax(0, 1fr) auto; }
   .title        { font-size: clamp(0.78rem, 1.4vw, 1rem); }
 }
+/* Interstitial social links */
+.interSocials {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.interSocialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  pointer-events: auto !important;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  background: rgba(0,0,0,0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.interSocialLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+/* Reposition interSocials to bottom left of interstitial */
+.interSocials {
+  position: absolute !important;
+  bottom: 5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  flex-direction: row !important;
+  z-index: 20 !important;
+}

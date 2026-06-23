@@ -432,20 +432,20 @@ export default function PublicationsFooterSection() {
             ))}
           </div>
 
-          <div className={styles.interstitialBottom}>
-            <div className={styles.interSocials}>
-              {profile.socials.map(s => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className={styles.interSocialLink}>
-                  {s.label === 'GitHub' && <FaGithub size={18} />}
-                  {s.label === 'LinkedIn' && <FaLinkedinIn size={18} />}
-                  <span>{s.label}</span>
-                </a>
-              ))}
-              <a href={`mailto:${profile.email}`} className={styles.interSocialLink}>
-                <FaEnvelope size={18} />
-                <span>Email</span>
+          <div className={styles.interSocials}>
+            {profile.socials.map(s => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className={styles.interSocialLink}>
+                {s.label === 'GitHub' && <FaGithub size={18} />}
+                {s.label === 'LinkedIn' && <FaLinkedinIn size={18} />}
+                <span>{s.label}</span>
               </a>
-            </div>
+            ))}
+            <a href={`mailto:${profile.email}`} className={styles.interSocialLink}>
+              <FaEnvelope size={18} />
+              <span>Email</span>
+            </a>
+          </div>
+          <div className={styles.interstitialBottom}>
             <span className={styles.interScrollText}>Continue</span>
             <span className={styles.interScrollLine} />
           </div>
